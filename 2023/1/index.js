@@ -1,6 +1,62 @@
 const fs = require('fs');
 const path = require('path');
 
+class SpelledNumericDigit {
+	#word;
+	#lookupTable;
+
+	constructor(word) {
+		this.#word = word;
+		this.#lookupTable = {
+			'one': 1,
+			'two': 2,
+			'three': 3,
+			'four': 4,
+			'five': 5,
+			'six'; 6,
+			'seven': 7,
+			'eight': 8,
+			'nine': 9
+		};
+	}
+	
+	get toInt() {
+		if (!(this.#word in this.#lookupTable)) {
+			return false;
+		}
+
+		return this.convertToInteger(this.#word);
+	}
+
+	get lookupTable() {
+		return this.#lookupTable;
+	}
+
+	convertToInteger(word) {
+		return this.#lookupTable[word.toLowerCase()];
+	}
+}
+
+class SearchableString {
+	#target;
+
+	constructor(target, lookupTable) {
+		this.#target = this.#target;
+		this.#lookupTable = this.#lookupTable;
+	}
+
+	get extractDigits() {
+		return this.search(this.#target);
+	}
+
+	search(searchStr) {
+		let searchStrLowerCase = searchStr.toLowerCase();
+		for (lookupTableDigitWord in this.#lookupTable) {
+
+		}
+	}
+}
+
 const solveTrebuchet = (data) => {
 	let acc = 0;
 	let splitLines = data.split(/\r?\n/);
